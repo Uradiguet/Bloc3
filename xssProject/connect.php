@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
 
     // Préparer la requête SQL pour éviter les injections SQL
-    $query = $connection->prepare("SELECT id, usr_password FROM users WHERE usr_name = ?");
+    $query = $connection->prepare("SELECT usr_id, usr_password FROM users WHERE usr_name = ?");
     $query->bind_param("s", $username);
     $query->execute();
     $result = $query->get_result();
